@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+        div:hover{
+            animation-name: animate-one;
+            animation-duration: 5s;
+        }
+        @keyframes animate-one{
+            0%{
+                background-color: yellow;;
+            }
+            100%{
+                background-color:black;
+            }
+        }
+        .abc{
+            width: 1500px;
+            height: 1500px;
+            margin: 50px;
+            background: url(sun.jpg) no-repeat;
+            position: relative;
+ 
+            animation-name: moving;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+        }
+        @keyframes moving {
+            from {
+        top: 1000px;
+    }
+    to {
+        top: 0;
+    }
+ 
+    }
+        
+    </style>
+    </head>
+    <body>
+        <div>
+            <h1><center>Animation</center></h1>
+            <p>Let see the Animation</p>
+        </div>
+        <div class="abc">
+        <p>Animation</p>
+        </div>
+    </body>
+</html>
