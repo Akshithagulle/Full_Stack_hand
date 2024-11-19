@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid #110101;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+    }
+    button {
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #add_emp,#removeId1,#searchId1{
+      background-color:aqua;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color:greenyellow; text-align:center">Employee Management System</h1>
+    
+    <!-- Add Employee -->
+    <h2 style="color:rgb(63, 60, 168)">Add Employee</h2>
+    <input type="text" id="name" placeholder="enter Name">
+    <input type="text" id="id" placeholder="enter ID">
+    <input type="text" id="skill" placeholder="enter Skill">
+    <input type="date" id="doj">
+    <input type="text" id="department" placeholder="enter Department">
+    <button onclick="add_emp()" id="add_emp">Add Employee</button>
+    
+    <!-- Remove Employee -->
+    <h2 style="color:rgb(58, 21, 117)">Remove Employee</h2>
+    <input type="text" id="removeId" placeholder="Enter ID to Remove">
+    <button onclick="remove_emp()" id="removeId1" >Remove Employee</button>
+    
+    <!-- Search Employee -->
+    <h2 style="color:rgb(34, 26, 147)">Search Employee</h2>
+    <input type="text" id="searchId" placeholder="Enter ID to Search">
+    <button onclick="searchEmployee()" id="searchId1">Search Employee</button>
+    
+    <!-- Result Section -->
+    <div class="result" id="result"></div>
+  </div>
+  <script src="Emp_manage.js"></script>
+</body>
+</html>
