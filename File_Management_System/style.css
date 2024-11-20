@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #51a6ab;
+  }
+  
+  .container {
+    text-align: center;
+    background: #2e7e7c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .actions input,
+  .actions textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    margin: 10px;
+    padding: 10px 15px;
+    background: #438d48;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #036808;
+  }
+  
+  #fileList {
+    margin-top: 20px;
+  }
+  
