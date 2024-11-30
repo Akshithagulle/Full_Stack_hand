@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .form-container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      width: 90%;
+      max-width: 600px;
+    }
+    h1, h2 {
+      color: cadetblue;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: cadetblue;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5c9ea0;
+    }
+    table {
+      width: 90%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 10px;
+    }
+    th {
+      background-color: cadetblue;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Admin Dashboard</h1>
+    <form method="POST" action="/admin-dashboard">
+      <h2>Register Product</h2>
+      <label for="name">Product Name:</label>
+      <input type="text" id="name" name="name" placeholder="Product Name" required />
+      
+      <label for="id">Product ID:</label>
+      <input type="text" id="id" name="id" placeholder="Product ID" required />
+      
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" placeholder="Price" required />
+      
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" placeholder="Category" required />
+      
+      <label for="manufacturingDate">Manufacturing Date:</label>
+      <input type="date" id="manufacturingDate" name="manufacturingDate" required />
+      
+      <label for="expDate">Expiration Date:</label>
+      <input type="date" id="expDate" name="expDate" required />
+      
+      <button type="submit" id="submit1">Add Product</button>
+    </form>
+  </div>
+
+  <h2>Product List</h2>
+  <% if (products && products.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Product ID</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Manufacturing Date</th>
+          <th>Expiration Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.id %></td>
+            <td>$<%= product.price %></td>
+            <td><%= product.category %></td>
+            <td><%= product.manufacturingDate %></td>
+            <td><%= product.expDate %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No products registered yet.</p>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login as <%= role %></h1>
+  <form action="/login" method="post">
+    <input type="hidden" name="role" value="<%= role %>" />
+    <label style="color:rgb(21, 108, 13)">Username:</label>
+    <input type="text" name="username" required /><br><br>
+    <label style="color:rgb(21, 108, 13)">Password:</label>
+    <input type="password" name="password" required /><br><br>
+    <button type="submit" id="submit">Login</button>
+  </form>
+</body>
+</html>

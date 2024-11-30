@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .form-container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: cadetblue;
+      margin-bottom: 20px;
+    }
+    form {
+      display: inline-block;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: cadetblue;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5c9ea0;
+    }
+    table {
+      width: 90%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 10px;
+    }
+    th {
+      background-color: cadetblue;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    p {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>User Dashboard</h1>
+    <form method="POST" action="/user-dashboard">
+      <label for="searchKey">Search for Products:</label>
+      <input type="text" id="searchKey" name="searchKey" placeholder="Search..." required>
+      <label for="searchType">Search By:</label>
+      <select id="searchType" name="searchType">
+        <option value="name">Name</option>
+        <option value="category">Category</option>
+      </select>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <h2 style="color: green;">Search Results</h2>
+  <% if (searchResults && searchResults.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Product ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Manufacturing Date</th>
+          <th>Expiration Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% searchResults.forEach(function(result) { %>
+          <tr>
+            <td><%= result.id %></td>
+            <td><%= result.name %></td>
+            <td><%= result.category %></td>
+            <td>$<%= result.price %></td>
+            <td><%= result.manufacturingDate %></td>
+            <td><%= result.expirationDate %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No products found. Use the search above to find products.</p>
+  <% } %>
+</body>
+</html>
+
+
