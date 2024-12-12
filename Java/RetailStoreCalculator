@@ -1,0 +1,46 @@
+package Demo;
+import java.util.Scanner;
+//RetailStoreCalculator
+public class Assigment1 {
+
+	    public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        
+	        byte itemCount;          
+	        short itemQuantity;     
+	        float itemPrice;        
+	        double totalAmount = 0;  
+	        
+	        System.out.print("Enter the number of different items: ");
+	        itemCount = scanner.nextByte();
+
+	        for (int i = 1; i <= itemCount; i++) {
+	            System.out.println("Item " + i + ":");
+	            System.out.print("Enter quantity: ");
+	            itemQuantity = scanner.nextShort();
+
+	            System.out.print("Enter price per item: ");
+	            itemPrice = scanner.nextFloat();
+
+	            double itemTotal = itemQuantity * itemPrice;
+	            totalAmount += itemTotal;
+
+	            System.out.printf("Total for Item %d: %.2f\n\n", i, itemTotal);
+	        }
+
+	        
+	        double salesTax = totalAmount * 0.07; 
+	        double discount = totalAmount * 0.1;  
+
+	        double finalAmount = totalAmount + salesTax - discount;
+
+	        // Display results
+	        System.out.printf("Subtotal: %.2f\n", totalAmount);
+	        System.out.printf("Sales Tax: %.2f\n", salesTax);
+	        System.out.printf("Discount: %.2f\n", discount);
+	        System.out.printf("Final Total Amount: %.2f\n", finalAmount);
+
+	        scanner.close();
+	    }
+	}
